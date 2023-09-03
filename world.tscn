@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player_controller.gd" type="Script" id=2]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[node name="world" type="Spatial"]
+
+[node name="CamBase" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.863272, 0.504739, 0, -0.504739, 0.863272, 0, 3.30494, 4.63918 )
+
+[node name="Camera" type="Camera" parent="CamBase"]
+
+[node name="street" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="street"]
+transform = Transform( 8.19471, 0, 0, 0, 1, 0, 0, 0, 66.063, 0, 0, -39.9362 )
+mesh = SubResource( 1 )
+
+[node name="PlayerController" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="player" parent="PlayerController" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79287, 0, 0 )
+
+[node name="lanes" type="Spatial" parent="PlayerController"]
+
+[node name="lane" type="Position3D" parent="PlayerController/lanes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+
+[node name="lane2" type="Position3D" parent="PlayerController/lanes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
+
+[node name="lane3" type="Position3D" parent="PlayerController/lanes"]
+
+[node name="lane4" type="Position3D" parent="PlayerController/lanes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
+
+[node name="lane5" type="Position3D" parent="PlayerController/lanes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
