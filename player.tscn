@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
 
 [sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="CylinderMesh" id=3]
 
 [node name="player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -13,6 +15,30 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+[node name="visual" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="visual"]
+transform = Transform( 1, 0, 0, 0, 0.583252, 0, 0, 0, 2.35937, 0, 1, 0 )
 mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="visual"]
+transform = Transform( 0.998631, 0, 0, 0, 0.844336, 0, 0, 0, 1.30323, 0, 1.45082, 0.243515 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="wheel" type="MeshInstance" parent="visual"]
+transform = Transform( -1.08522e-08, -0.24827, 0, 0.644244, -2.81608e-08, 0, 0, 0, 0.644244, 0.704909, 0.625108, 1.43642 )
+mesh = SubResource( 3 )
+
+[node name="wheel2" type="MeshInstance" parent="visual"]
+transform = Transform( -1.08522e-08, -0.24827, 0, 0.644244, -2.81608e-08, 0, 0, 0, 0.644244, -0.71821, 0.625108, 1.43642 )
+mesh = SubResource( 3 )
+
+[node name="wheel3" type="MeshInstance" parent="visual"]
+transform = Transform( -1.08522e-08, -0.24827, 0, 0.644244, -2.81608e-08, 0, 0, 0, 0.644244, -0.71821, 0.625108, -1.55612 )
+mesh = SubResource( 3 )
+
+[node name="wheel4" type="MeshInstance" parent="visual"]
+transform = Transform( -1.08522e-08, -0.24827, 0, 0.644244, -2.81608e-08, 0, 0, 0, 0.644244, 0.691608, 0.625108, -1.55612 )
+mesh = SubResource( 3 )

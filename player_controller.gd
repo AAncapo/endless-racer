@@ -3,13 +3,12 @@ extends Spatial
 onready var lanes := $lanes.get_children()
 onready var player := $player
 var current_lane:int
-var initial_lane:int
+var initial_lane:int = 1
 var desired_lane:int
 var lane_pos: Vector3
 
 
 func _ready():
-	initial_lane = floor(lanes.size()/2)
 	current_lane = initial_lane
 
 
